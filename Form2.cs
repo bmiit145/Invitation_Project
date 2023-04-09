@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace Invitation_Project
 {
-    public partial class dashboard : Form
+    public partial class Form2 : Form
     {
-        public dashboard()
+        public Form2()
         {
             InitializeComponent();
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

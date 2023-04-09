@@ -33,9 +33,11 @@ namespace Invitation_Project
             dr.Read();
             if (dr.HasRows)
             {
+                UserData.username = txt_username.Text;
                 dashboard d = new dashboard();
-                this.DestroyHandle();
                 d.ShowDialog();
+                this.DestroyHandle();
+
             }
             else
             {

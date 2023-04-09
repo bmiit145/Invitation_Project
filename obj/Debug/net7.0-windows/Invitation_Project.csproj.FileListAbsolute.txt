@@ -30,3 +30,4 @@ D:\UTU\GUI_1\Invitation_Project\bin\Debug\net7.0-windows\runtimes\unix\lib\netco
 D:\UTU\GUI_1\Invitation_Project\bin\Debug\net7.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\UTU\GUI_1\Invitation_Project\obj\Debug\net7.0-windows\Invitation_Project.csproj.CopyComplete
 D:\UTU\GUI_1\Invitation_Project\obj\Debug\net7.0-windows\Invitation_Project.dashboard.resources
+D:\UTU\GUI_1\Invitation_Project\obj\Debug\net7.0-windows\Invitation_Project.Form2.resources
