@@ -26,5 +26,10 @@ namespace Invitation_Project
         {
 
         }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
