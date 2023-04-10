@@ -4,6 +4,9 @@
     <Compile Update="changePass.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="design.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Employee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -13,7 +16,13 @@
     <Compile Update="Form2.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="generateBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="New folder\1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="order.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

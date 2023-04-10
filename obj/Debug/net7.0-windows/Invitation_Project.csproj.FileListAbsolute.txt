@@ -33,3 +33,6 @@ D:\UTU\GUI_1\Invitation_Project\obj\Debug\net7.0-windows\Invitation_Project.dash
 D:\UTU\GUI_1\Invitation_Project\obj\Debug\net7.0-windows\Invitation_Project.Form2.resources
 D:\UTU\GUI_1\Invitation_Project\obj\Debug\net7.0-windows\Invitation_Project.Employee.resources
 D:\UTU\GUI_1\Invitation_Project\obj\Debug\net7.0-windows\Invitation_Project.changePass.resources
+D:\UTU\GUI_1\Invitation_Project\obj\Debug\net7.0-windows\Invitation_Project.design.resources
+D:\UTU\GUI_1\Invitation_Project\obj\Debug\net7.0-windows\SMS.generateBill.resources
+D:\UTU\GUI_1\Invitation_Project\obj\Debug\net7.0-windows\Invitation_Project.order.resources

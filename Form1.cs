@@ -35,6 +35,7 @@ namespace Invitation_Project
             {
                 btn_submit.Enabled = false;
                 UserData.username = txt_username.Text;
+                UserData.user_id = dr.GetInt32(3);
                 UserData.modified_pass = 0;
                 if (txt_pass.Text == "password")
                 {

@@ -446,6 +446,32 @@ namespace Invitation_Project
             emp.Show();
         }
 
+        private void designsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            design d = new design();
+            d.Show();
+            this.Close();
+        }
+
+        private void btn_clear_search_Click(object sender, EventArgs e)
+        {
+            txtIdSearch.Clear();
+            txtContactSearch.Clear();
+            loadGridView();
+        }
+
+        private void orderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            order op = new order();
+            op.Show();
+            this.Close();
+        }
+
+        private void txtContactSearch_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
         private void btnSearch_Click(object sender, EventArgs e)
         {
             txtId.Enabled = true;

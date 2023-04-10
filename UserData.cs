@@ -11,6 +11,7 @@ namespace Invitation_Project
         public static string username;
         public static int modified_pass;
         public static int role = 2;
+        public static int user_id = 0;
 
         public UserData() {
             username = null;

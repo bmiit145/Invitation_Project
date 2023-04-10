@@ -198,7 +198,7 @@ namespace Invitation_Project
             con.Close();
             con.Open();
 
-            cmd = new SqlCommand("update tblCust set name = @name , con_no = @con_no , email = @email , address = @address , salary = @salary  , date = @date , role = @role  where id = @emp_id;", con);
+            cmd = new SqlCommand("update tblEmployee set name = @name , con_no = @con_no , email = @email , address = @address , salary = @salary  , date = @date , role = @role  where id = @emp_id;", con);
             cmd.Parameters.AddWithValue("@name", txtName.Text);
             cmd.Parameters.AddWithValue("@con_no", Convert.ToInt64(txtConNum.Text));
             cmd.Parameters.AddWithValue("@email", txtEmail.Text);
@@ -228,7 +228,7 @@ namespace Invitation_Project
 
             con.Close();
             con.Open();
-            cmd = new SqlCommand("select * from tblCust where id = @emp_id", con);
+            cmd = new SqlCommand("select * from tblEmployee where id = @emp_id", con);
             cmd.Parameters.AddWithValue("@emp_id", Convert.ToInt32(txtId.Text));
             dr = cmd.ExecuteReader();
             dr.Read();
@@ -263,6 +263,7 @@ namespace Invitation_Project
 
                 btn_delete.Enabled = true;
                 btn_update.Enabled = true;
+                btn_Fill.Enabled = false;
             }
             else
             {
@@ -405,6 +406,27 @@ namespace Invitation_Project
         private void txtConNum_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void designsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            design d = new design();
+            d.Show();
+            this.Close();
+        }
+
+        private void btn_clear_search_Click(object sender, EventArgs e)
+        {
+            txtIdSearch.Clear();
+            txtContactSearch.Clear();
+            loadGridView();
+        }
+
+        private void orderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            order op = new order();
+            op.Show();
+            this.Close();
         }
     }
 }
