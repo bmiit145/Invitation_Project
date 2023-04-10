@@ -81,11 +81,12 @@ namespace Invitation_Project
 
         private void Form2_Load(object sender, EventArgs e)
         {
+           
             // check for employee role
-
+            
             con.Close();
             con.Open();
-            cmd = new SqlCommand("select id from tblEmployee inner join tbl_auth on tbl_auth.user_id = tblEmployee.id where tbl_auth.username = @username", con);
+            cmd = new SqlCommand("select * from tblEmployee inner join tbl_auth on tbl_auth.user_id = tblEmployee.id where tbl_auth.username = @username", con);
             cmd.Parameters.AddWithValue("@username", UserData.username);
             dr = cmd.ExecuteReader();
             dr.Read();
@@ -95,12 +96,10 @@ namespace Invitation_Project
             if(UserData.role < 3)
                 {
                employeeToolStripMenuItem.Visible= false;
-                employeeToolStripMenuItem.Enabled= false;
+               employeeToolStripMenuItem.Enabled= false;
                 }
-            
-
             con.Close();
-
+            
             initial_stage();
             autoId();
             loadAllComboBox();

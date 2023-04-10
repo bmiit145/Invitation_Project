@@ -33,16 +33,24 @@ namespace Invitation_Project
             dr.Read();
             if (dr.HasRows)
             {
+                btn_submit.Enabled = false;
                 UserData.username = txt_username.Text;
                 UserData.modified_pass = 0;
                 if (txt_pass.Text == "password")
                 {
-                    UserData.modified_pass = 1;
+                    
+                        changePass ch = new changePass();
+                        ch.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    Form2 a = new Form2();
+                    a.Show();
+                    this.Hide();
                 }
 
-                dashboard d = new dashboard();
-                d.ShowDialog();
-                this.DestroyHandle();
+              
 
             }
             else

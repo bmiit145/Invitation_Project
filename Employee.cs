@@ -36,6 +36,25 @@ namespace Invitation_Project
 
         private void Employee_Load(object sender, EventArgs e)
         {
+
+            con.Close();
+            con.Open();
+            cmd = new SqlCommand("select * from tblEmployee inner join tbl_auth on tbl_auth.user_id = tblEmployee.id where tbl_auth.username = @username", con);
+            cmd.Parameters.AddWithValue("@username", UserData.username);
+            dr = cmd.ExecuteReader();
+            dr.Read();
+
+            UserData.role = dr.GetInt32(7);
+
+            if (UserData.role < 3)
+            {
+                employeeToolStripMenuItem.Visible = false;
+                employeeToolStripMenuItem.Enabled = false;
+            }
+
+
+            con.Close();
+
             initial_stage();
             autoId();
             loadGridView();
@@ -89,6 +108,7 @@ namespace Invitation_Project
             all_clear();
             initial_stage();
             btn_save.Enabled = true;
+            txt_username.Enabled = true;
         }
         private void autoId()
         {
@@ -154,7 +174,8 @@ namespace Invitation_Project
             {
                 con.Close();
                 con.Open();
-                cmd = new SqlCommand("insert into tbl_auth values(@username , 'password')" , con);
+                cmd = new SqlCommand("insert into tbl_auth values(@username , 'password',@user_id)" , con);
+                cmd.Parameters.AddWithValue("@user_id" , txtId.Text);
                 cmd.Parameters.AddWithValue("@username", txt_username.Text);
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -228,6 +249,17 @@ namespace Invitation_Project
                 {
                     rad_des.Checked= true;
                 }
+
+                con.Close();
+                con.Open();
+                cmd = new SqlCommand("select username from tbl_auth where user_id = @user_id", con);
+                cmd.Parameters.AddWithValue("@user_id" , txtId.Text);
+                dr = cmd.ExecuteReader();
+                dr.Read();
+                if (dr.HasRows) { 
+                txt_username.Text = dr.GetString(0);
+                }
+                con.Close();
 
                 btn_delete.Enabled = true;
                 btn_update.Enabled = true;
@@ -346,7 +378,7 @@ namespace Invitation_Project
             btn_Fill.Enabled = true;
             btn_new.Enabled = false;
             btn_save.Enabled = false;
-
+            txt_username.Enabled = false;
             btnSearch.Enabled = false;
         }
 

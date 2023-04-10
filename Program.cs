@@ -12,7 +12,7 @@ namespace Invitation_Project
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //Application.Run(new loginForm());
-            Application.Run(new Form2());
+            Application.Run(new loginForm());
         }
     }
 }
