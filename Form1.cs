@@ -34,6 +34,12 @@ namespace Invitation_Project
             if (dr.HasRows)
             {
                 UserData.username = txt_username.Text;
+                UserData.modified_pass = 0;
+                if (txt_pass.Text == "password")
+                {
+                    UserData.modified_pass = 1;
+                }
+
                 dashboard d = new dashboard();
                 d.ShowDialog();
                 this.DestroyHandle();

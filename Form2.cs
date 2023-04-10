@@ -81,10 +81,31 @@ namespace Invitation_Project
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            // check for employee role
+
+            con.Close();
+            con.Open();
+            cmd = new SqlCommand("select id from tblEmployee inner join tbl_auth on tbl_auth.user_id = tblEmployee.id where tbl_auth.username = @username", con);
+            cmd.Parameters.AddWithValue("@username", UserData.username);
+            dr = cmd.ExecuteReader();
+            dr.Read();
+
+            UserData.role = dr.GetInt32(7);
+            
+            if(UserData.role < 3)
+                {
+               employeeToolStripMenuItem.Visible= false;
+                employeeToolStripMenuItem.Enabled= false;
+                }
+            
+
+            con.Close();
+
             initial_stage();
             autoId();
             loadAllComboBox();
             loadGridView();
+            lblUsername.Text = UserData.username;
         }
 
         private void autoId()
@@ -200,7 +221,8 @@ namespace Invitation_Project
 
         private void clearSearch()
         {
-
+            txtIdSearch.Clear();
+            txtContactSearch.Clear();
             //throw new NotImplementedException();
         }
 
@@ -323,12 +345,6 @@ namespace Invitation_Project
         {
             this.DestroyHandle();
         }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void txtIdSearch_TextChanged(object sender, EventArgs e)
         {
             if (txtIdSearch.Text != "")
@@ -422,6 +438,13 @@ namespace Invitation_Project
             Form2 f2 = new Form2();
             f2.ShowDialog();
             this.DestroyHandle();
+        }
+
+        private void addEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Employee emp = new Employee();
+            this.Hide();
+            emp.Show();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
